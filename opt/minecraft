@@ -23,7 +23,7 @@ if [ "$READ_ONLY" != "true" ]; then
 fi
 
 # create server config
-echo "server-port=${mc_port}" >> /app/server.properties
+echo -e "#Minecraft server properties\n#14 September 2020 1:52 PM\nspawn-protection=16\nmax-tick-time=60000\ngenerator-settings=\nforce-gamemode=false\nallow-nether=true\ngamemode=0\nenable-query=false\nplayer-idle-timeout=0\ndifficulty=1\nspawn-monsters=true\nop-permission-level=4\nresource-pack-hash=\nannounce-player-achievements=true\npvp=true\nsnooper-enabled=true\nlevel-type=DEFAULT\nhardcore=false\nenable-command-block=false\nmax-players=20\nnetwork-compression-threshold=256\nmax-world-size=29999984\nserver-port=${mc_port}\nserver-ip=\nspawn-npcs=true\nallow-flight=false\nlevel-name=world\nview-distance=8\nresource-pack=\nspawn-animals=true\nwhite-list=false\ngenerate-structures=true\nonline-mode=false\nmax-build-height=256\nlevel-seed=\nuse-native-transport=true\nmotd=Only a test - Hosted by Octagon\nenable-rcon=false\n" >> /app/server.properties
 for f in whitelist banned-players banned-ips ops; do
   test ! -f $f.json && echo -n "[]" > $f.json
 done
